@@ -13,21 +13,19 @@ page_rank <- function(M) {
     
     d <- 0.8
     N <- nrow(M)
-    C_d <- dove.wrap(d)
     # create a random nodes by 1 matrix from unif[0,1)
-    v <- dove.matrix(nrow = nodes, ncol = 1, rand = TRUE)
+    v <- matrix(nrow = nodes, ncol = 1, rand = TRUE)
     norm_one <- sum(abs(v))
     v <- v / norm_one
    
-    M_hat <- (M * C_d) + dove.wrap((1-d) / N)
+    M_hat <- (M * d) + ((1-d) / N)
     iters <- 40
-    dove.for(1, iters, 1, function(i) {
+    for(i in 1:iters) {
         v[,] <- M_hat %*% v
-    })
+    }
 
     v
 }
 
-source('dove.R')
-M <- dove.matrix("sample", nrow=nodes, ncol=nodes)
+M <- matrix("sample", nrow=nodes, ncol=nodes)
 r <- page_rank(M)

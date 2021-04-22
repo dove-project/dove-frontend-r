@@ -1,8 +1,8 @@
 dove_matrix_counter <- 1
 
 # Override the standard R Matrix class
-matrix <- function(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL) {
-    dove.matrix(data, nrow, ncol, byrow, dimnames, rand = FALSE)
+matrix <- function(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL, rand = FALSE) {
+    dove.matrix(data, nrow, ncol, byrow, dimnames, rand)
 }
 
 # Create S3 class dove_matrix with specific dove_secret data.
